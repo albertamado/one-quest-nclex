@@ -1,6 +1,10 @@
 // src/pages/components/utils/getUserRole.js
+// Minimal helper used by Layout.jsx to determine a user's role.
+// Adjust heuristics to match your real user object shape.
+
 export function getUserRole(user) {
   if (!user) return 'guest';
+
   if (typeof user.role === 'string' && user.role.length) return user.role;
 
   const email = (user.email || '').toLowerCase();
@@ -12,3 +16,4 @@ export function getUserRole(user) {
 
   return 'student';
 }
+
